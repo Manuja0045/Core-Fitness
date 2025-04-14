@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Login and Signup Form -->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/login.css">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            
+            <title>Login - Core Fitness</title>
+        
+            <!-- CSS -->
+            <link rel="stylesheet" href="css/login.css">
+        
+            <!-- Boxicons CSS -->
+            <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        </head>
+        
+        <body>
+            <section class="container forms">
+                <div class="form login">
+                    <div class="form-content">
+                        <header>Login</header>
+                        <form id="login-form">
+                            <div class="field input-field">
+                                <input type="email" id="email" placeholder="Email" class="input" required>
+                            </div>
+        
+                            <div class="field input-field">
+                                <input type="password" id="password" placeholder="Password" class="password" required>
+                                <i class='bx bx-hide eye-icon' onclick="togglePassword()"></i>
+                            </div>
+        
+                            <div class="form-link">
+                                <a href="#" class="forgot-pass">Forgot password?</a>
+                            </div>
+        
+                            <div class="field button-field">
+                                <button type="submit">Login</button>
+                            </div>
+                        </form>
+        
+                        <p id="error-message" style="color: red;"></p>
+        
+                        <div class="form-link">
+                            <span>Don't have an account? <a href="registration.html" class="registration-form">Signup</a></span>
+                        </div>
+                    </div>
+        
+                    <div class="line"></div>
+        
+                    <div class="media-options">
+                        <a href="https://www.facebook.com/login.php/" class="field facebook">
+                            <i class='bx bxl-facebook facebook-icon'></i>
+                            <span>Login with Facebook</span>
+                        </a>
+                    </div>
+        
+                    <div class="media-options">
+                        <a href="https://accounts.google.com/signin" class="field google">
+                            <img src="images/google-img.jpg" alt="" class="google-img">
+                            <span>Login with Google</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        
+            <!-- JavaScript -->
+            <script src="js/login.js"></script>
+        </body>
+        
+        </html>
+        
+    </head>
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Login</header>
+                    <form action="index.html">
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" class="input">
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="form-link">
+                            <a href="#" class="forgot-pass">Forgot password?</a>
+                        </div>
+
+                        <div class="field button-field">
+                            <button>Login</button>
+                        </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Don't have an account? <a href="registration.html" class="registartion-form">Signup</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="https://www.facebook.com/login.php/" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href="https://accounts.google.com/v3/signin/identifier?dsh=S1929656393%3A1680426101478000&authuser=0&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue%26pli%3D1&ec=GAlAwAE&hl=en&service=accountsettings&flowName=GlifWebSignIn&flowEntry=AddSession" class="field google">
+                        <img src="images/google-img.jpg" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Signup Form -->
+
+            <div class="form signup">
+                <div class="form-content">
+                    <header>Signup</header>
+                    <form> <!--action="#">-->
+                        <div class="field input-field">
+                            <input type="text" placeholder="First Name" class="input">
+                        </div>
+                        <div class="field input-field">
+                            <input type="text" placeholder="Last Name" class="input">
+                        </div>
+                        <div class="field input-field">
+                            <input type="email" placeholder="Email" class="input">
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Create password" class="password">
+                        </div>
+
+                        <div class="field input-field">
+                            <input type="password" placeholder="Confirm password" class="password">
+                            <i class='bx bx-hide eye-icon'></i>
+                        </div>
+
+                        <div class="field button-field">
+                            <button>Signup</button>
+                        </div>
+                    </form>
+
+                    <div class="form-link">
+                        <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                    </div>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="media-options">
+                    <a href="https://www.facebook.com/login.php/" class="field facebook">
+                        <i class='bx bxl-facebook facebook-icon'></i>
+                        <span>Login with Facebook</span>
+                    </a>
+                </div>
+
+                <div class="media-options">
+                    <a href="#" class="field google">
+                        <img src="images/google-img.jpg" alt="" class="google-img">
+                        <span>Login with Google</span>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- JavaScript -->
+        <script src="js/login.js"></script>
+    </body>
+</html>

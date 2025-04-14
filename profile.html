@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <header>
+        <h1>Welcome, <span id="user-name">User</span></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Men_workout.html">Schedule</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+            <li id="user-info">
+                <img id="user-avatar" src="images/default-avatar.png" alt="User Avatar" class="avatar">
+                <a href="profile.html" id="profile-link">Profile</a>
+            </li>
+            <li><a href="login.html" id="logout-btn">Sign Out</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Personal Information</h2>
+            <img id="profile-avatar" src="images/default-avatar.png" alt="User Avatar" class="profile-avatar">
+            <ul>
+                <li><strong>Name:</strong> <span id="full-name">Loading...</span></li>
+                <li><strong>Email:</strong> <span id="email">Loading...</span></li>
+                <li><strong>Phone:</strong> <span id="phone">Loading...</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Membership Information</h2>
+            <ul>
+                <li><strong>Plan:</strong> <span id="membership-type">Loading...</span></li>
+                <li><strong>Status:</strong> <span id="membership-status">Loading...</span></li>
+                <li><strong>Attendance:</strong> <span id="attendance">Loading...</span></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Calendar</h2>
+            <div id="calendar"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Core Fitness</p>
+    </footer>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

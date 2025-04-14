@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="css/registration.css">
+  <title>Registration Form</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Core Fitness Registration Form</h1>
+    
+    <form class="registration-form">
+      <table>
+        <tr>
+          <td><label for="fname">First Name:</label></td>
+          <td><input type="text" id="fname" placeholder="Enter Your First Name" required></td>
+        </tr>
+        <tr>
+          <td><label for="lname">Last Name:</label></td>
+          <td><input type="text" id="lname" placeholder="Enter Your Last Name" required></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input type="email" id="email" placeholder="Enter Your Email" required></td>
+        </tr>
+        <tr>
+          <td><label for="password">Password:</label></td>
+          <td><input type="password" id="password" placeholder="Enter New Password" required></td>
+        </tr>
+        <tr>
+          <td><label for="phoneNumber">Phone Number:</label></td>
+          <td><input type="text" id="phoneNumber" placeholder="Enter Your Phone Number" required></td>
+        </tr>
+        <tr>
+          <td><label for="gender">Gender:</label></td>
+          <td>
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+            <input type="radio" name="gender" value="other"> Other
+          </td>
+        </tr>
+        <tr>
+          <td><label for="zipcode">Zip Code:</label></td>
+          <td><input type="text" id="zipcode" placeholder="Enter Your Zip Code" required></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="submit">Register</button>
+          </td>
+        </tr>
+        <tr class="form-link">
+          <td colspan="2">
+            <span>Already have an account? <a href="login.html" class="link login-link">Login</a></span>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  
+  <script src="js/registration.js"></script>
+</body>
+</html>
