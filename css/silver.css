@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  overflow-x: hidden;
+}
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+html::-webkit-scrollbar-track {
+  background: #000;
+}
+html::-webkit-scrollbar-thumb {
+  background: #FF7F50;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #000;
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 9%;
+    z-index: 10000;
+    background: #000;
+  }
+  .header .logo {
+    font-weight: bolder;
+    color: #fff;
+    font-size: 2rem;
+    text-decoration: none;
+  }
+  .header .logo span {
+    font-size: 2rem;
+    color: #FF7F50;
+  }
+
+  .header {
+    padding: 1.5rem 2rem;
+    font-size: 1.7rem;
+    color: #000000;
+  }
+
+
+header {
+	background-color: #FF7F50;
+	color: #fffafa;
+	padding: 20px;
+}
+
+
+main {
+    margin-top: 5%;
+	padding: 50px;
+    margin-bottom: 2%;
+}
+
+section {
+    color: #ffffff;
+	margin-bottom: 20px;
+}
+
+h2 {
+    color: #FF7F50;
+	margin-top:auto;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+li:last-child {
+	margin-bottom: 0;
+}
+
+
+.button {
+    text-decoration: none;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #FF7F50;
+	color: #ffffff;
+}
+
+footer {
+	background-color: #cf0101;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+	position:absolute;
+	width: 100%;
+}
+

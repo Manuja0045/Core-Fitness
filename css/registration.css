@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #0a0a0a, #1a1a1a, #2a2a2a);
+  overflow: auto;
+  padding: 20px;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.container h1 {
+  color: #FF7F50;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-form table {
+  width: 100%;
+}
+
+.registration-form td {
+  padding: 10px 5px;
+  color: white;
+  font-size: 16px;
+}
+
+.registration-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #FF7F50;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+
+.registration-form input:focus {
+  border-color: #ffffff;
+  box-shadow: 0px 0px 10px #FF7F50;
+}
+
+.registration-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.registration-form .submit {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, #FF7F50, #FF7F50);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.registration-form .submit:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 127, 80, 0.8);
+}
+
+.form-link {
+  margin-top: 15px;
+  font-size: 14px;
+  color: white;
+}
+
+.form-link a {
+  color: #FF7F50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.form-link a:hover {
+  text-decoration: underline;
+}
