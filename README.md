@@ -21,8 +21,8 @@ Core Fitness is a dynamic and responsive web-based fitness management platform d
 ## 🛠️ Technologies Used
 
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js, Express.js
-- **Database:** MySQL (planned)
+- **Backend:** Node.js
+- **Database:** MySQL
 
 ## 👥 Team Members
 
