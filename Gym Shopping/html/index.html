@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gym Shop</title>
+    <link rel="stylesheet" href="/Gym Shopping/css/styles.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>COREFITNESS STORE</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="/index.html">HOME</a></li>
+        <li><a href="index.html">SHOP</a></li>
+        <li>
+          <a href="cart.html"
+            ><img
+              src="/images/cart.png"
+              alt="Cart"
+              style="width: 24px; vertical-align: middle; margin-right: 5px"
+            />
+            (<span id="cart-count">0</span>)</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="filter-button">
+      <button class="active" onclick="filterProducts('all',event)">All</button>
+      <button onclick="filterProducts('gymfood',event)">Gym Food</button>
+      <button onclick="filterProducts('supplements',event)">Supplements</button>
+      <button onclick="filterProducts('equipment',event)">Equipments</button>
+      <button onclick="filterProducts('accessories',event)">Accessories</button>
+    </div>
+
+    <div class="search-bar">
+      <input
+        type="text"
+        id="search-input"
+        oninput="searchProducts()"
+        placeholder="Search for products..."
+      />
+    </div>
+
+    <div class="product-container" id="product-container"></div>
+
+    <script>
+
+
+
+      
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+    
+
+
+
+
+      
+      document.querySelectorAll(".menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("menu").classList.remove("active");
+        });
+      });
+    
+
+
+
+
+
+
+    
+      fetch("data.json")
+        .then((response) => response.json()) 
+        .then((data) => {
+          const container = document.getElementById("product-container");
+    
+        
+          data.forEach((product) => {
+            
+            const card = document.createElement("div");
+            
+            card.classList.add("product", product.category.toLowerCase());
+    
+            
+            card.innerHTML = `
+              <div class="product-content">
+                <img src="${product.img}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.desc}</p>
+                <p>₹${product.price}</p>
+                <button onclick='event.stopPropagation(); addToCart(${JSON.stringify(product)})'>Add To Cart</button>
+                <button onclick='event.stopPropagation(); viewProduct(${JSON.stringify(product)})'>View Details</button>
+              </div>
+            `;
+    
+          
+            card.addEventListener("click", () => viewProduct(product));
+           
+            container.appendChild(card);
+          });
+        });
+    
+
+
+
+
+
+
+      // Store the clicked product into localStorage and go to product_detail.html
+      function viewProduct(product) {
+        localStorage.setItem("product", JSON.stringify(product));
+        window.location.href = "product_detail.html";
+      }
+    
+
+
+
+
+
+      // Add the selected product to the cart
+      function addToCart(product) {
+        // Get the cart from localStorage (or start with an empty cart)
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+        // Check if this product is already in the cart
+        let existingItem = cart.find((item) => item.name === product.name);
+    
+        if (existingItem) {
+          // If yes, increase the quantity
+          existingItem.quantity = (existingItem.quantity || 1) + 1;
+        } else {
+          // If no, add it to the cart with quantity 1
+          cart.push({
+            name: product.name,
+            price: product.price,
+            img: product.img,
+            quantity: 1,
+          });
+        }
+    
+        // Save the updated cart to localStorage
+        localStorage.setItem("cart", JSON.stringify(cart));
+        // Update the cart count on the top-right corner
+        updateCartCount();
+      }
+    
+
+
+
+
+      // Update the cart item count shown in the navbar
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        // Add up the total quantity of all products in the cart
+        const totalItems = cart.reduce(
+          (sum, item) => sum + (item.quantity || 1),
+          0
+        );
+        // Show the total number of items in the cart
+        document.getElementById("cart-count").textContent = totalItems;
+      }
+    
+
+
+
+
+      // Filter products by category (like gymfood, supplements, etc.)
+      function filterProducts(category, event) {
+        // Remove 'active' class from all filter buttons
+        const buttons = document.querySelectorAll(".filter-button button");
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        // Add 'active' class to the clicked button
+        event.target.classList.add("active");
+    
+        // Get all products displayed on the page
+        const products = document.querySelectorAll(".product");
+    
+        products.forEach((product) => {
+          // Show or hide products based on selected category
+          product.style.display =
+            category === "all" || product.classList.contains(category)
+              ? "block"
+              : "none";
+        });
+      }
+    
+
+
+
+
+
+      // Search products by name
+      function searchProducts() {
+        // Get the search text (converted to lowercase)
+        const query = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+    
+        // Get all product cards
+        const products = document.querySelectorAll(".product");
+    
+        products.forEach((product) => {
+          // Get the product name
+          const name = product.querySelector("h3").textContent.toLowerCase();
+          // Show the product only if the name includes the search text
+          product.style.display = name.includes(query) ? "block" : "none";
+        });
+      }
+    
+      // When the page loads, update the cart count
+      window.onload = updateCartCount;
+
+
+
+      
+    </script>
+    
+  </body>
+</html>

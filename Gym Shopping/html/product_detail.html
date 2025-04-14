@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details</title>
+    <link rel="stylesheet" href="/css/productdetail.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <h1>Gym Store</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="menu" id="menu">
+        <li><a href="#">HOME</a></li>
+        <li><a href="index.html">SHOP</a></li>
+        <li>
+          <a href="cart.html">CART(<span id="cart-count">0</span>)</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="product-container">
+      <div class="product-details" id="details">
+        <img id="product-img" src="" alt="Product Image" />
+        <h2 id="product-name"></h2>
+        <p class="highlight" id="product-price"></p>
+        <p id="product-desc"></p>
+      </div>
+
+      <div class="product-info">
+        <div class="section-title">Category</div>
+        <p id="product-category"></p>
+
+        <div class="section-title">Specifications</div>
+        <p>
+          <span class="highlight">Brand:</span> <span id="product-brand"></span>
+        </p>
+        <p>
+          <span class="highlight">Weight/Size:</span>
+          <span id="product-weight"></span>
+        </p>
+        <p>
+          <span class="highlight">Material:</span>
+          <span id="product-material"></span>
+        </p>
+
+        <div class="section-title">Usage & Delivery</div>
+        <p>
+          <span class="highlight">Usage:</span> <span id="product-usage"></span>
+        </p>
+        <p>
+          <span class="highlight">Warranty:</span>
+          <span id="product-warranty"></span>
+        </p>
+        <p>
+          <span class="highlight">Delivery:</span>
+          <span id="product-delivery"></span>
+        </p>
+
+        <div class="section-title">Rating</div>
+        <p><span id="product-rating"></span></p>
+
+        <button onclick="addToCartFromDetails()" class="addToCart">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("menu");
+        menu.classList.toggle("active");
+      }
+
+      // Close menu on link click (optional)
+      document.querySelectorAll(".menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("menu").classList.remove("active");
+        });
+      });
+
+      function addToCartFromDetails() {
+        const product = JSON.parse(localStorage.getItem("product"));
+
+        if (product) {
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+          // Check if product already exists in the cart
+          let existingItem = cart.find((item) => item.name === product.name);
+
+          if (existingItem) {
+            // Increase quantity if already exists
+            existingItem.quantity = (existingItem.quantity || 1) + 1;
+          } else {
+            // Add new item with quantity 1
+            cart.push({
+              name: product.name,
+              price: product.price,
+              img: product.img,
+              quantity: 1,
+            });
+          }
+
+          localStorage.setItem("cart", JSON.stringify(cart));
+          updateCartCount();
+        }
+      }
+
+      function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const totalItems = cart.reduce(
+          (sum, item) => sum + (item.quantity || 1),
+          0
+        );
+        document.getElementById("cart-count").innerText = totalItems;
+      }
+
+      window.onload = () => {
+        updateCartCount();
+        const product = JSON.parse(localStorage.getItem("product"));
+        if (product) {
+          document.getElementById("product-img").src =
+            product.img || "images/default-product.jpg";
+          document.getElementById("product-name").innerText =
+            product.name || "";
+          document.getElementById("product-price").innerText =
+            `₹${product.price}` || "";
+          document.getElementById("product-desc").innerText =
+            product.desc || "";
+          document.getElementById("product-category").innerText =
+            product.category || "N/A";
+          document.getElementById("product-brand").innerText =
+            product.brand || "N/A";
+          document.getElementById("product-weight").innerText =
+            product.weight || "N/A";
+          document.getElementById("product-material").innerText =
+            product.material || "N/A";
+          document.getElementById("product-usage").innerText =
+            product.usage || "-";
+          document.getElementById("product-warranty").innerText =
+            product.warranty || "No warranty";
+          document.getElementById("product-delivery").innerText =
+            product.delivery || "2-5 days";
+          document.getElementById("product-rating").innerText =
+            product.rating || "Not Rated";
+        }
+      };
+    </script>
+  </body>
+</html>
